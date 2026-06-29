@@ -35,7 +35,6 @@
     min-height: 100vh;
   }
 
-  /* ── HEADER ── */
   header {
     background: var(--brown-900);
     padding: 1.2rem 2rem;
@@ -83,7 +82,6 @@
     font-size: 11px; font-weight: 700;
   }
 
-  /* ── HERO ── */
   .hero {
     background: var(--brown-800);
     padding: 6rem 2rem;
@@ -114,7 +112,6 @@
     position: relative;
   }
 
-  /* ── MAIN LAYOUT ── */
   .container {
     max-width: 1300px;
     margin: 0 auto;
@@ -145,7 +142,6 @@
     .deco-col { display: none; }
   }
 
-  /* ── CELULAR (menos de 700px) ── */
   @media (max-width: 700px) {
     .container {
       grid-template-columns: 1fr;
@@ -205,7 +201,6 @@
     }
   }
 
-  /* ── PREVIEW ── */
   .preview-card {
     background: #fff;
     border-radius: 20px;
@@ -271,7 +266,6 @@
     transition: opacity 0.3s;
   }
 
-  /* ── SELECTORS ── */
   .selectors { display: flex; flex-direction: column; gap: 1rem; }
 
   .sel-group { }
@@ -325,7 +319,6 @@
   .arrow-btn:hover { background: var(--cream-dark); border-color: var(--caramel); }
   .arrow-btn:active { transform: scale(0.9); }
 
-  /* ── SIDEBAR ── */
   .sidebar { display: flex; flex-direction: column; gap: 1rem; }
 
   .summary-card {
@@ -408,7 +401,6 @@
   .add-btn:hover { background: var(--accent-light); }
   .add-btn:active { transform: scale(0.98); }
 
-  /* ── CART MODAL ── */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -496,7 +488,6 @@
     transition: background 0.2s;
   }
   .checkout-btn:hover { background: var(--brown-700); }
-  /* ── FAQ ── */
 .faq-section {
   max-width: 900px;
   margin: 0 auto;
@@ -541,7 +532,6 @@
 .faq-item.open .faq-answer { max-height: 200px; }
 .faq-answer p { padding-top: 0.75rem; }
 
-  /* ── TOAST ── */
   .toast {
     position: fixed;
     bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(80px);
@@ -561,7 +551,6 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="logo"><span class="logo-brown">Al</span><span class="logo-fast">fast</span><span class="logo-brown">jores</span></div>
   <button class="cart-pill" onclick="openCart()">
@@ -570,21 +559,17 @@
   </button>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <h1>Tu alfajor,<br><em>como vos querés</em></h1>
-  <p>Elegí cada capa y creá una combinación única</p>                
+  <p>Elegí cada capa y creá una combinacion unica</p>                
 </div>
 
-<!-- MAIN -->
 <div class="container">
 
-  <!-- DECO IZQUIERDA -->
   <div class="deco-col">
     <img src="deco-izq.png" alt="">
   </div>
 
-  <!-- LEFT: PREVIEW + SELECTORS -->
   <div>
 
     <div class="preview-card">
@@ -662,7 +647,6 @@
     </div>
   </div>
 
-  <!-- RIGHT: SIDEBAR SUMMARY -->
   <div class="sidebar">
     <div class="summary-card">
       <div class="summary-title">Resumen</div>
@@ -702,13 +686,11 @@
     </div>
   </div>
 
-  <!-- DECO DERECHA -->
   <div class="deco-col">
     <img src="deco-der.png" alt="">
   </div>
 
 </div>
-<!-- FAQ -->
 <div class="faq-section">
   <div class="faq-title">¿En qué te podemos ayudar?</div>
 
@@ -746,7 +728,6 @@
 
 </div>
 
-<!-- CART MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
   <div class="modal">
     <div class="modal-header">
@@ -766,40 +747,26 @@
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
 const tapas = [
   { name: "Maicena clásica",    desc: "Suave y esponjosa",       icon: "🟡", bg: "#F5E6C8", text: "#7A5C1E", price: 200 },
   { name: "Chocolate negro",    desc: "Intensa y crocante",      icon: "🟫", bg: "#4A2C1A", text: "#F5DEB3", price: 250 },
-  { name: "Cacao y avena",      desc: "Rústica y nutritiva",     icon: "🟤", bg: "#7B5230", text: "#F2D9B0", price: 250 },
   { name: "Vainilla",           desc: "Clásica y aromática",     icon: "🌿", bg: "#FFF3C4", text: "#8A7000", price: 220 },
-  { name: "Naranja",            desc: "Cítrica y fresca",        icon: "🍊", bg: "#FFD8A8", text: "#A04000", price: 230 },
-  { name: "Limón",              desc: "Ácida y liviana",         icon: "🍋", bg: "#FFFACD", text: "#7A7A00", price: 230 },
-  { name: "Canela y jengibre",  desc: "Especiada y perfumada",   icon: "🌰", bg: "#D4956A", text: "#4A1A00", price: 240 },
   { name: "Coco rallado",       desc: "Tropical y crujiente",    icon: "🥥", bg: "#E8F5E9", text: "#2E7D32", price: 240 },
 ];
 
 const rellenos = [
   { name: "Dulce de leche",     desc: "El clásico de siempre",   icon: "🍯", bg: "#E8C88A", text: "#5C3A00", price: 150 },
-  { name: "Mousse de chocolate",desc: "Cremoso y profundo",       icon: "🍫", bg: "#3B1F0F", text: "#F5CBA7", price: 200 },
   { name: "Mermelada de frutilla",desc:"Dulce y afrutado",        icon: "🍓", bg: "#FF6B81", text: "#4A0010", price: 180 },
-  { name: "Crema de maní",      desc: "Suave con toque salado",  icon: "🥜", bg: "#C8A26A", text: "#3A1A00", price: 190 },
   { name: "Nutella",            desc: "Avellanas y cacao",       icon: "🌰", bg: "#5C2A0F", text: "#F5DEB3", price: 220 },
-  { name: "Membrillo",          desc: "Tradicional y consistente",icon:"🍊", bg: "#E8764A", text: "#4A1000", price: 160 },
-  { name: "Crema de vainilla",  desc: "Suave y delicada",        icon: "🤍", bg: "#FFF8E7", text: "#8A7000", price: 170 },
-  { name: "Arándanos",          desc: "Frutal y levemente ácido",icon: "🫐", bg: "#4A2C8A", text: "#E8D5FF", price: 200 },
 ];
 
 const coberturas = [
   { name: "Sin cobertura",       desc: "Las tapas al natural",    icon: "⬜", bg: "#F5F5F0", text: "#888", border: "none",                  price: 0   },
   { name: "Chocolate blanco",    desc: "Suave y dulce",           icon: "🤍", bg: "#FFF5E0", text: "#8A6A00", border: "3px solid #E8C870",   price: 100 },
-  { name: "Chocolate con leche", desc: "Cremoso y clásico",       icon: "🍫", bg: "#C4813A", text: "#FFF3E0", border: "3px solid #8B5E3C",   price: 100 },
   { name: "Chocolate negro",     desc: "Intenso y amargo",        icon: "⬛", bg: "#2C1A0E", text: "#F5CBA7", border: "3px solid #1A0A04",   price: 120 },
-  { name: "Glaseado rosa",       desc: "Dulce y vistoso",         icon: "🩷", bg: "#FFB3C6", text: "#7A0030", border: "3px solid #E0607A",   price: 90  },
-  { name: "Azúcar impalpable",   desc: "Clásico nevado",          icon: "❄️", bg: "#F0F4FF", text: "#2A3A7A", border: "2px dashed #B0C0F0", price: 50  },
-  { name: "Granillo de coco",    desc: "Textura tropical",        icon: "🥥", bg: "#E0F5E0", text: "#1A5A1A", border: "3px solid #90CC90",   price: 80  },
 ];
 
 const state = { tapaTop: 0, relleno: 0, tapaBot: 0, cobertura: 0, qty: 1 };
@@ -829,7 +796,6 @@ function render() {
   const tb = tapas[state.tapaBot];
   const cb = coberturas[state.cobertura];
 
-  // Visual
   const vTop = document.getElementById('vis-top');
   vTop.style.background = tt.bg; vTop.style.color = tt.text;
   vTop.innerHTML = tt.icon + ' ' + tt.name;
@@ -848,16 +814,13 @@ function render() {
 
   document.getElementById('alfajor-name').textContent = tt.name + ' · ' + rl.name + (cb.name !== 'Sin cobertura' ? ' · ' + cb.name : '');
 
-  // Selectors
   setSelector('top', tt); setSelector('rel', rl); setSelector('bot', tb); setSelector('cob', cb);
 
-  // Summary
   document.getElementById('sum-top').textContent = tt.name;
   document.getElementById('sum-rel').textContent = rl.name;
   document.getElementById('sum-bot').textContent = tb.name;
   document.getElementById('sum-cob').textContent = cb.name;
 
-  // Qty + price
   document.getElementById('qty-val').textContent = state.qty;
   document.getElementById('price-val').textContent = fmt(getUnitPrice() * state.qty);
 }
@@ -939,7 +902,6 @@ function showToast(msg) {
 
 render();
 
-// Fijar imágenes laterales con JavaScript
 window.addEventListener('scroll', function() {
   var izq = document.getElementById('deco-izq');
   var der = document.getElementById('deco-der');
@@ -962,8 +924,7 @@ function enviarWhatsApp() {
   let msg = "🥮 *Nuevo pedido — Alfastjores*\n";
   if (nombre) msg += "👤 Cliente: " + nombre + "\n";
   msg += "\n" + lineas + "\n\n💰 *Total: $" + total.toLocaleString("es-AR") + "*\n\n_Pedido realizado desde la web_";
-
-  // Enviar al panel del encargado (localStorage — funciona si ambas páginas están abiertas en el mismo dispositivo)
+ 
   try {
     const pedido = {
       cliente: nombre || "Cliente web",
